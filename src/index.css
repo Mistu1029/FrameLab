@@ -557,6 +557,7 @@ body {
 .author-details {
   min-width: 0;
   flex: 1;
+  overflow: visible;
 }
 
 .author-role {
@@ -566,19 +567,20 @@ body {
   letter-spacing: 0.1em;
   color: var(--accent-purple-light);
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .author-name {
   font-family: var(--font-script);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: normal;
   letter-spacing: 0.02em;
   color: #ffffff;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.35;
+  white-space: normal;
+  overflow: visible;
+  word-break: normal;
+  padding: 2px 0;
   transition: color 0.2s ease;
 }
 
@@ -1587,31 +1589,39 @@ body {
 .blossom-top-right {
   top: 0;
   right: 0;
-  width: 360px;
-  height: 300px;
+  width: 440px;
+  height: 330px;
 }
 
 /* Tucked in extreme upper-left so it NEVER collides with Aesthetic Moments title */
 .blossom-top-left {
   top: 0;
   left: 0;
-  width: 150px;
-  height: 95px;
+  width: 190px;
+  height: 85px;
   opacity: 0.7;
+}
+
+.blossom-mid-right {
+  top: 38%;
+  right: 0;
+  width: 210px;
+  height: 210px;
+  opacity: 0.65;
 }
 
 .blossom-bottom-left {
   bottom: 0;
   left: 0;
-  width: 270px;
-  height: 230px;
+  width: 300px;
+  height: 250px;
 }
 
 .blossom-bottom-right {
   bottom: 0;
   right: 0;
-  width: 270px;
-  height: 230px;
+  width: 300px;
+  height: 250px;
 }
 
 .blossom-svg {
@@ -1718,12 +1728,19 @@ body {
 
 @media (max-width: 1024px) {
   .blossom-top-right {
-    width: 260px;
-    height: 220px;
+    width: 300px;
+    height: 230px;
   }
   .blossom-top-left {
+    width: 150px;
+    height: 70px;
+  }
+  .blossom-mid-right {
+    display: none;
+  }
+  .blossom-bottom-left {
     width: 220px;
-    height: 190px;
+    height: 180px;
   }
   .blossom-bottom-right {
     display: none;
