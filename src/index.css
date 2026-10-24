@@ -352,7 +352,94 @@ body {
   transform: translateY(0);
 }
 
-/* Card Bottom Gradient & Info */
+.category-tag-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--accent-amber-light);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.photo-title-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+.photo-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.location-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--accent-amber);
+  flex-shrink: 0;
+}
+
+/* Category Filter Bar */
+.category-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.25rem 0 1.25rem;
+  margin-bottom: 1.5rem;
+  scrollbar-width: none;
+}
+
+.category-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.category-pill {
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.category-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.category-pill.active {
+  background: linear-gradient(135deg, var(--accent-amber-light), var(--accent-amber));
+  color: #000;
+  border-color: transparent;
+  box-shadow: 0 4px 12px var(--accent-amber-glow);
+}
+
+/* Card Bottom Gradient & Info Overlay */
 .gallery-card-overlay {
   position: absolute;
   inset: 0;
@@ -642,4 +729,301 @@ body {
 
 .retry-btn:hover {
   background: var(--accent-amber-light);
+}
+
+/* =========================================================
+   Welcome Landing Screen & Gradual Typewriter Styles
+   ========================================================= */
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #08090d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.welcome-screen.welcome-exit {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+/* Ambient Glowing Orbs */
+.welcome-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.22;
+}
+
+.orb-primary {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #f59e0b, transparent 70%);
+  top: -80px;
+  left: 20%;
+  animation: floatGlow 10s infinite alternate ease-in-out;
+}
+
+.orb-secondary {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #6366f1, transparent 70%);
+  bottom: -60px;
+  right: 15%;
+  animation: floatGlow 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(40px) scale(1.1);
+  }
+}
+
+/* Top Skip Bar */
+.welcome-top-bar {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 20;
+}
+
+.welcome-skip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.welcome-skip-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.welcome-skip-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Central Content Container */
+.welcome-content {
+  max-width: 680px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  padding: 2rem 1.5rem;
+}
+
+.welcome-logo-badge {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+  margin-bottom: 2rem;
+  animation: pulseAura 3s infinite ease-in-out;
+}
+
+.welcome-logo-badge svg {
+  width: 34px;
+  height: 34px;
+}
+
+@keyframes pulseAura {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.35);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 14px 40px rgba(245, 158, 11, 0.55);
+  }
+}
+
+/* Gradual Heading & Cursor */
+.welcome-heading-wrapper {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-heading {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  display: inline-block;
+}
+
+.typing-cursor {
+  color: var(--accent-amber-light);
+  margin-left: 3px;
+  font-weight: 300;
+  font-family: monospace;
+}
+
+.cursor-blink {
+  animation: cursorBlink 0.9s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Subtitle & Badges Fade-in */
+.welcome-subtitle {
+  font-size: 1.05rem;
+  color: #9ca3af;
+  margin-top: 1rem;
+  line-height: 1.6;
+  max-width: 540px;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.subtitle-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.subtitle-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.welcome-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+
+.badges-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.badges-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.welcome-pill {
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* Action Section & Auto Countdown */
+.welcome-action-section {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  transition: opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s;
+}
+
+.action-hidden {
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+}
+
+.action-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.welcome-enter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 2.2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #000;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.welcome-enter-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.welcome-enter-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(245, 158, 11, 0.5);
+}
+
+.welcome-enter-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.welcome-progress-wrapper {
+  width: 220px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.welcome-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  transition: width 0.05s linear;
+}
+
+.welcome-auto-text {
+  font-size: 0.72rem;
+  color: #6b7280;
+  font-family: var(--font-mono);
 }
