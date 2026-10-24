@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import Card from './components/Card'
 import Welcome from './components/Welcome'
+import AddPhotoModal from './components/AddPhotoModal'
 import { AESTHETIC_PHOTOS, INDIAN_NAMES } from './data/photos'
 
 const App = () => {
   const [showWelcome, setShowWelcome] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [userData, setUserData] = useState([])
   const [index, setIndex] = useState(1)
   const [category, setCategory] = useState('All')
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
+
+  // Load any previously user-added photos from localStorage
+  const [customPhotos, setCustomPhotos] = useState(() => {
+    try {
+      const saved = localStorage.getItem('framelab_custom_photos')
+      return saved ? JSON.parse(saved) : []
+    } catch {
+      return []
+    }
+  })
 
   const ITEMS_PER_PAGE = 12
 
@@ -28,13 +40,15 @@ const App = () => {
     setHasError(false)
 
     try {
-      // Smooth loading transition
-      await new Promise((r) => setTimeout(r, 200))
+      await new Promise((r) => setTimeout(r, 160))
+
+      // Combine user-submitted photos at the top with curated aesthetic photos
+      const combinedPool = [...customPhotos, ...AESTHETIC_PHOTOS]
 
       const filtered =
         category === 'All'
-          ? AESTHETIC_PHOTOS
-          : AESTHETIC_PHOTOS.filter((p) => p.category === category)
+          ? combinedPool
+          : combinedPool.filter((p) => p.category === category)
 
       const startIndex = (index - 1) * ITEMS_PER_PAGE
       let pageItems = filtered.slice(startIndex, startIndex + ITEMS_PER_PAGE)
@@ -65,7 +79,7 @@ const App = () => {
   useEffect(() => {
     getData()
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [index, category])
+  }, [index, category, customPhotos])
 
   const handleCategoryChange = (cat) => {
     if (cat !== category) {
@@ -75,10 +89,31 @@ const App = () => {
     }
   }
 
+  const handleAddPhoto = (newPhoto) => {
+    setCustomPhotos((prev) => {
+      const updated = [newPhoto, ...prev]
+      try {
+        localStorage.setItem('framelab_custom_photos', JSON.stringify(updated))
+      } catch (e) {
+        console.warn('Could not save to localStorage', e)
+      }
+      return updated
+    })
+    setCategory('All')
+    setIndex(1)
+  }
+
   return (
     <>
       {/* Intro Welcome Screen with Gradual Typewriter */}
       {showWelcome && <Welcome onEnter={() => setShowWelcome(false)} />}
+
+      {/* Add Photograph Dialog Modal */}
+      <AddPhotoModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onAddPhoto={handleAddPhoto}
+      />
 
       <div className="gallery-app">
         {/* Top Brand Header */}
@@ -117,16 +152,22 @@ const App = () => {
               </div>
             </div>
 
-            {/* Header Controls: Replay Welcome & Page Indicator */}
+            {/* Header Controls: Add Photo Button & Page Indicator */}
             <div className="header-stats">
               <button
                 type="button"
-                onClick={() => setShowWelcome(true)}
-                className="welcome-skip-btn"
-                style={{ position: 'static' }}
-                title="Replay welcome animation"
+                onClick={() => setIsModalOpen(true)}
+                className="btn-add-photo"
+                title="Submit your own photograph to the gallery"
               >
-                <span>✨ Replay Intro</span>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>Add Photo</span>
               </button>
 
               <div className="page-indicator-badge">
