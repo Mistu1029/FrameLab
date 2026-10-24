@@ -6,8 +6,6 @@ const Welcome = ({ onEnter }) => {
   const [isTypingDone, setIsTypingDone] = useState(false)
   const [progress, setProgress] = useState(0)
   const [isExiting, setIsExiting] = useState(false)
-  // Default to rotated layout (-90deg) as requested
-  const [rotationAngle, setRotationAngle] = useState(-90)
 
   // Gradual typing animation
   useEffect(() => {
@@ -53,21 +51,13 @@ const Welcome = ({ onEnter }) => {
     }, 450)
   }
 
-  const toggleRotation = () => {
-    setRotationAngle((prev) => {
-      if (prev === -90) return 90
-      if (prev === 90) return 0
-      return -90
-    })
-  }
-
   return (
     <div className={`welcome-screen ${isExiting ? 'welcome-exit' : ''}`}>
       {/* Animated Pinterest Video Background in Rotated Layout */}
       <div className="welcome-video-container">
         <video
           className="welcome-bg-video"
-          style={{ transform: `translate(-50%, -50%) rotate(${rotationAngle}deg)` }}
+          style={{ transform: 'translate(-50%, -50%) rotate(-90deg)' }}
           src="https://v1.pinimg.com/videos/mc/720p/26/eb/58/26eb580680e3ea369620cd82bdd6621f.mp4"
           poster="https://i.pinimg.com/736x/5b/84/a5/5b84a560b74185e7045fa979090f3bd4.jpg"
           autoPlay
@@ -83,30 +73,13 @@ const Welcome = ({ onEnter }) => {
       <div className="welcome-glow-orb orb-primary" />
       <div className="welcome-glow-orb orb-secondary" />
 
-      {/* Top Controls: Rotation Toggle & Skip Button */}
+      {/* Top Bar: Clean Enter Gallery Button (without rotate button) */}
       <div className="welcome-top-bar">
-        <button
-          type="button"
-          onClick={toggleRotation}
-          className="welcome-rotate-btn"
-          title="Toggle video rotation layout (-90°, 90°, Portrait)"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path
-              d="M4 12v-2a8 8 0 0 1 14.93-4M20 12v2a8 8 0 0 1-14.93 4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path d="m18 2 3 3-3 3M6 22l-3-3 3-3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <span>Rotated ({rotationAngle === 0 ? 'Normal' : `${rotationAngle}°`})</span>
-        </button>
-
         <button
           type="button"
           onClick={handleEnter}
           className="welcome-skip-btn"
-          title="Skip intro and enter gallery"
+          title="Enter gallery directly"
         >
           <span>Enter Gallery</span>
           <svg viewBox="0 0 20 20" fill="currentColor">
@@ -119,7 +92,7 @@ const Welcome = ({ onEnter }) => {
         </button>
       </div>
 
-      {/* Central Content Box */}
+      {/* Free-Floating Central Content (Directly on the page, without container box) */}
       <div className="welcome-content">
         {/* Brand Aperture Icon with Luminous Violet Aura */}
         <div className="welcome-logo-badge">
@@ -137,7 +110,7 @@ const Welcome = ({ onEnter }) => {
           </svg>
         </div>
 
-        {/* Gradual Welcome Heading with Typewriter */}
+        {/* Gradual Welcome Heading with Typewriter directly on page */}
         <div className="welcome-heading-wrapper">
           <h1 className="welcome-heading">
             {displayedText}
