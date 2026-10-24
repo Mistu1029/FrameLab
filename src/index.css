@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/beautiful-people-personal-use');
+
+@font-face {
+  font-family: 'Beautiful People';
+  src: url('/fonts/BeautifulPeople.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/14907/Beautiful%20People%20Personal%20Use.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 *,
 *::before,
@@ -21,6 +31,7 @@
   --accent-lavender: #e9d5ff;
   --accent-violet: #8b5cf6;
   --accent-fuchsia: #d946ef;
+  --accent-pink: #f472b6;
   --accent-purple-glow: rgba(168, 85, 247, 0.32);
   
   --text-main: #f5f3ff;
@@ -30,6 +41,7 @@
   --font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-script: 'Beautiful People', 'Beautiful People Personal Use', cursive;
 }
 
 body {
@@ -50,6 +62,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================================================
@@ -81,26 +95,34 @@ body {
 }
 
 .brand-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #c084fc, #9333ea);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.96) 55%, rgba(250, 240, 255, 0.9) 75%, rgba(244, 114, 182, 0.25) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  box-shadow: 0 6px 20px var(--accent-purple-glow);
+  box-shadow: 0 4px 18px rgba(244, 114, 182, 0.45), 0 0 12px rgba(192, 132, 252, 0.35);
+  border: 1.5px solid rgba(244, 114, 182, 0.5);
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  overflow: visible;
+  position: relative;
+  padding: 2px;
 }
 
 .brand-section:hover .brand-icon {
-  transform: rotate(-6deg) scale(1.05);
+  transform: rotate(-6deg) scale(1.08);
+  box-shadow: 0 6px 24px rgba(244, 114, 182, 0.65), 0 0 18px rgba(236, 72, 153, 0.5);
 }
 
-.brand-icon svg {
-  width: 24px;
-  height: 24px;
+.brand-cherry-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transform: scale(1.18);
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
 }
 
 .brand-titles {
@@ -115,15 +137,17 @@ body {
 }
 
 .brand-title {
-  font-family: var(--font-family);
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--font-script);
+  font-size: 2.15rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
   color: #fff;
+  line-height: 1.1;
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
 }
 
 .brand-title span {
-  background: linear-gradient(135deg, #e9d5ff, #c084fc);
+  background: linear-gradient(135deg, #ffffff, #f472b6, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -237,11 +261,13 @@ body {
 }
 
 .intro-title {
-  font-family: var(--font-family);
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--font-script);
+  font-size: 2.75rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
   color: #fff;
+  line-height: 1.15;
+  text-shadow: 0 0 25px rgba(244, 114, 182, 0.35);
 }
 
 .intro-desc {
@@ -541,10 +567,12 @@ body {
 }
 
 .author-name {
-  font-size: 1.02rem;
-  font-weight: 700;
+  font-family: var(--font-script);
+  font-size: 1.55rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
   color: #ffffff;
-  line-height: 1.25;
+  line-height: 1.15;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -949,51 +977,57 @@ body {
 }
 
 .welcome-logo-badge {
-  width: 76px;
-  height: 76px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #c084fc, #7c3aed);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.96) 55%, rgba(252, 245, 255, 0.9) 75%, rgba(244, 114, 182, 0.3) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  box-shadow: 0 10px 30px var(--accent-purple-glow);
-  margin-bottom: 1.75rem;
-  animation: pulseAura 3s infinite ease-in-out;
+  box-shadow: 0 10px 35px rgba(244, 114, 182, 0.5), 0 0 35px rgba(168, 85, 247, 0.4);
+  border: 2px solid rgba(244, 114, 182, 0.55);
+  margin-bottom: 1.5rem;
+  padding: 4px;
+  animation: pulseAura 4s infinite ease-in-out;
+  overflow: visible;
+  position: relative;
 }
 
-.welcome-logo-badge svg {
-  width: 36px;
-  height: 36px;
+.welcome-cherry-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.18);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
 }
 
 @keyframes pulseAura {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 10px 30px var(--accent-purple-glow);
+    box-shadow: 0 10px 35px rgba(244, 114, 182, 0.5), 0 0 35px rgba(168, 85, 247, 0.4);
   }
   50% {
     transform: scale(1.06);
-    box-shadow: 0 14px 45px rgba(168, 85, 247, 0.6);
+    box-shadow: 0 14px 45px rgba(244, 114, 182, 0.7), 0 0 45px rgba(168, 85, 247, 0.6);
   }
 }
 
 .welcome-heading-wrapper {
-  min-height: 80px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .welcome-heading {
-  font-family: var(--font-family);
-  font-size: clamp(2.4rem, 6vw, 3.8rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-family: var(--font-script);
+  font-size: clamp(3.2rem, 8vw, 5.2rem);
+  font-weight: normal;
+  letter-spacing: 0.02em;
   color: #ffffff;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 0 35px rgba(192, 132, 252, 0.5);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 0 35px rgba(244, 114, 182, 0.5);
   display: inline-block;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .typing-cursor {
@@ -1492,4 +1526,195 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 6px 22px rgba(168, 85, 247, 0.55);
   background: linear-gradient(135deg, #d8b4fe, #a855f7);
+}
+
+/* =========================================================
+   Ambient Background (Theme Glow, Cherry Blossoms & Floating Photo Frames)
+   ========================================================= */
+.ambient-bg-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ambient-glow-top-left {
+  top: -160px;
+  left: -120px;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, rgba(139, 92, 246, 0.06) 50%, transparent 70%);
+  filter: blur(100px);
+}
+
+.ambient-glow-top-right {
+  top: 5%;
+  right: -140px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(192, 132, 252, 0.05) 55%, transparent 70%);
+  filter: blur(120px);
+}
+
+.ambient-glow-bottom-center {
+  bottom: -180px;
+  left: 25%;
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.14) 0%, transparent 70%);
+  filter: blur(130px);
+}
+
+/* Cherry Blossom Corner Branches */
+.blossom-corner {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.95;
+  filter: drop-shadow(0 6px 22px rgba(244, 114, 182, 0.45)) drop-shadow(0 2px 10px rgba(192, 132, 252, 0.35));
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.blossom-top-right {
+  top: 0;
+  right: 0;
+  width: 380px;
+  height: 320px;
+}
+
+.blossom-top-left {
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 280px;
+}
+
+.blossom-bottom-right {
+  bottom: 0;
+  right: 0;
+  width: 280px;
+  height: 240px;
+}
+
+.blossom-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Enhanced 24 Drifting Sakura Blossom Petals Shower */
+.falling-petals-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  background: linear-gradient(135deg, #ffffff 0%, #fce7f3 25%, #f472b6 70%, #db2777 100%);
+  border-radius: 65% 35% 75% 25% / 65% 25% 75% 35%;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(244, 114, 182, 0.45));
+  pointer-events: none;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.petal-anim-A {
+  animation-name: driftPetalA;
+}
+
+.petal-anim-B {
+  animation-name: driftPetalB;
+}
+
+.petal-anim-C {
+  animation-name: driftPetalC;
+}
+
+@keyframes driftPetalA {
+  0% {
+    transform: translateY(-40px) translateX(0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(50vh) translateX(65px) rotate(190deg) scale(1);
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(105vh) translateX(120px) rotate(370deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes driftPetalB {
+  0% {
+    transform: translateY(-40px) translateX(0) rotate(20deg) scale(0.95);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.8;
+  }
+  45% {
+    transform: translateY(45vh) translateX(-50px) rotate(-160deg) scale(1.05);
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(105vh) translateX(30px) rotate(-340deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes driftPetalC {
+  0% {
+    transform: translateY(-40px) translateX(0) rotate(-30deg) scale(1);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateY(60vh) translateX(80px) rotate(220deg) scale(0.95);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(105vh) translateX(140px) rotate(420deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .blossom-top-right {
+    width: 260px;
+    height: 220px;
+  }
+  .blossom-top-left {
+    width: 220px;
+    height: 190px;
+  }
+  .blossom-bottom-right {
+    display: none;
+  }
 }
