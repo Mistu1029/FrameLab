@@ -97,7 +97,7 @@ const Welcome = ({ onEnter }) => {
         {/* Brand Aperture Icon with Luminous Violet Aura */}
         <div className="welcome-logo-badge">
           <img
-            src="/cherry-camera-logo-trans.png"
+            src="/cherry-camera-white.png"
             alt="FrameLab Camera Logo"
             className="welcome-cherry-logo"
           />

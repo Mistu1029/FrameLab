@@ -131,7 +131,7 @@ const App = () => {
             >
               <div className="brand-icon">
                 <img
-                  src="/cherry-camera-logo-trans.png"
+                  src="/cherry-camera-white.png"
                   alt="FrameLab Camera Logo"
                   className="brand-cherry-logo"
                 />

@@ -95,17 +95,16 @@ body {
 }
 
 .brand-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.96) 55%, rgba(250, 240, 255, 0.9) 75%, rgba(244, 114, 182, 0.25) 100%);
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #c084fc, #9333ea);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 18px rgba(244, 114, 182, 0.45), 0 0 12px rgba(192, 132, 252, 0.35);
-  border: 1.5px solid rgba(244, 114, 182, 0.5);
+  box-shadow: 0 6px 20px var(--accent-purple-glow);
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   overflow: visible;
   position: relative;
   padding: 2px;
@@ -113,7 +112,7 @@ body {
 
 .brand-section:hover .brand-icon {
   transform: rotate(-6deg) scale(1.08);
-  box-shadow: 0 6px 24px rgba(244, 114, 182, 0.65), 0 0 18px rgba(236, 72, 153, 0.5);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.6);
 }
 
 .brand-cherry-logo {
@@ -121,8 +120,8 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
-  transform: scale(1.18);
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
+  transform: scale(1.26);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
 }
 
 .brand-titles {
@@ -138,12 +137,13 @@ body {
 
 .brand-title {
   font-family: var(--font-script);
-  font-size: 2.15rem;
+  font-size: 1.55rem;
   font-weight: normal;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: #fff;
   line-height: 1.1;
-  text-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.3);
+  white-space: nowrap;
 }
 
 .brand-title span {
@@ -247,9 +247,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 0.75rem;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 2;
 }
 
 @media (min-width: 640px) {
@@ -262,12 +265,12 @@ body {
 
 .intro-title {
   font-family: var(--font-script);
-  font-size: 2.75rem;
+  font-size: 1.95rem;
   font-weight: normal;
   letter-spacing: 0.02em;
   color: #fff;
-  line-height: 1.15;
-  text-shadow: 0 0 25px rgba(244, 114, 182, 0.35);
+  line-height: 1.2;
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.25);
 }
 
 .intro-desc {
@@ -568,11 +571,11 @@ body {
 
 .author-name {
   font-family: var(--font-script);
-  font-size: 1.55rem;
+  font-size: 1.15rem;
   font-weight: normal;
   letter-spacing: 0.02em;
   color: #ffffff;
-  line-height: 1.15;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -977,18 +980,17 @@ body {
 }
 
 .welcome-logo-badge {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.96) 55%, rgba(252, 245, 255, 0.9) 75%, rgba(244, 114, 182, 0.3) 100%);
+  width: 78px;
+  height: 78px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #c084fc, #7c3aed);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 35px rgba(244, 114, 182, 0.5), 0 0 35px rgba(168, 85, 247, 0.4);
-  border: 2px solid rgba(244, 114, 182, 0.55);
+  box-shadow: 0 10px 30px var(--accent-purple-glow);
   margin-bottom: 1.5rem;
   padding: 4px;
-  animation: pulseAura 4s infinite ease-in-out;
+  animation: pulseAura 3s infinite ease-in-out;
   overflow: visible;
   position: relative;
 }
@@ -997,23 +999,23 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.18);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+  transform: scale(1.25);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
 }
 
 @keyframes pulseAura {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 10px 35px rgba(244, 114, 182, 0.5), 0 0 35px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 10px 30px var(--accent-purple-glow);
   }
   50% {
     transform: scale(1.06);
-    box-shadow: 0 14px 45px rgba(244, 114, 182, 0.7), 0 0 45px rgba(168, 85, 247, 0.6);
+    box-shadow: 0 14px 45px rgba(168, 85, 247, 0.6);
   }
 }
 
 .welcome-heading-wrapper {
-  min-height: 90px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1021,13 +1023,13 @@ body {
 
 .welcome-heading {
   font-family: var(--font-script);
-  font-size: clamp(3.2rem, 8vw, 5.2rem);
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
   font-weight: normal;
   letter-spacing: 0.02em;
   color: #ffffff;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 0 35px rgba(244, 114, 182, 0.5);
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 0 25px rgba(244, 114, 182, 0.35);
   display: inline-block;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .typing-cursor {
@@ -1548,27 +1550,27 @@ body {
 .ambient-glow-top-left {
   top: -160px;
   left: -120px;
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, rgba(139, 92, 246, 0.06) 50%, transparent 70%);
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 65%);
   filter: blur(100px);
 }
 
 .ambient-glow-top-right {
   top: 5%;
   right: -140px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(192, 132, 252, 0.05) 55%, transparent 70%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.04) 0%, transparent 65%);
   filter: blur(120px);
 }
 
 .ambient-glow-bottom-center {
   bottom: -180px;
   left: 25%;
-  width: 750px;
-  height: 750px;
-  background: radial-gradient(circle, rgba(147, 51, 234, 0.14) 0%, transparent 70%);
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(109, 40, 217, 0.05) 0%, transparent 70%);
   filter: blur(130px);
 }
 
@@ -1576,8 +1578,8 @@ body {
 .blossom-corner {
   position: absolute;
   pointer-events: none;
-  opacity: 0.95;
-  filter: drop-shadow(0 6px 22px rgba(244, 114, 182, 0.45)) drop-shadow(0 2px 10px rgba(192, 132, 252, 0.35));
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.7)) drop-shadow(0 2px 8px rgba(168, 85, 247, 0.18));
   transition: opacity 0.3s ease;
   z-index: 0;
 }
@@ -1585,22 +1587,31 @@ body {
 .blossom-top-right {
   top: 0;
   right: 0;
-  width: 380px;
-  height: 320px;
+  width: 360px;
+  height: 300px;
 }
 
+/* Tucked in extreme upper-left so it NEVER collides with Aesthetic Moments title */
 .blossom-top-left {
   top: 0;
   left: 0;
-  width: 320px;
-  height: 280px;
+  width: 150px;
+  height: 95px;
+  opacity: 0.7;
+}
+
+.blossom-bottom-left {
+  bottom: 0;
+  left: 0;
+  width: 270px;
+  height: 230px;
 }
 
 .blossom-bottom-right {
   bottom: 0;
   right: 0;
-  width: 280px;
-  height: 240px;
+  width: 270px;
+  height: 230px;
 }
 
 .blossom-svg {

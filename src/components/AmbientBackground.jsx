@@ -214,56 +214,72 @@ const AmbientBackground = () => {
         </svg>
       </div>
 
-      {/* Top-Left Delicate Cherry Blossom Spray */}
+      {/* Top-Left Subtle Corner Accent (Hugs edge so it never overlaps the Intro Title) */}
       <div className="blossom-corner blossom-top-left">
         <svg
-          viewBox="0 0 320 280"
+          viewBox="0 0 160 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="blossom-svg"
         >
           <path
-            d="M0 10 C80 30, 150 75, 210 130 C250 170, 280 210, 305 250"
-            stroke="url(#sakura-branch-grad)"
-            strokeWidth="5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M100 45 C140 35, 180 20, 215 5"
+            d="M0 0 C45 15, 90 20, 135 10"
             stroke="url(#sakura-branch-grad)"
             strokeWidth="3.5"
             strokeLinecap="round"
           />
           <path
-            d="M150 90 C185 115, 225 130, 260 145"
+            d="M60 12 C75 30, 95 38, 115 42"
+            stroke="url(#sakura-branch-grad)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+          <g transform="translate(60, 12) scale(0.9) rotate(-15)">
+            <use href="#sakura-flower-full" />
+          </g>
+          <g transform="translate(115, 42) scale(0.8) rotate(25)">
+            <use href="#sakura-flower-side" />
+          </g>
+          <g transform="translate(135, 10) scale(0.75) rotate(-35)">
+            <use href="#sakura-bud" />
+          </g>
+        </svg>
+      </div>
+
+      {/* Bottom-Left Blossom Branch (Frames bottom margin away from headers) */}
+      <div className="blossom-corner blossom-bottom-left">
+        <svg
+          viewBox="0 0 280 240"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="blossom-svg"
+        >
+          <path
+            d="M0 220 C70 195, 130 155, 180 105 C215 70, 250 35, 270 0"
+            stroke="url(#sakura-branch-grad)"
+            strokeWidth="4.5"
+            strokeLinecap="round"
+          />
+          <path
+            d="M130 155 C160 180, 195 200, 230 215"
             stroke="url(#sakura-branch-grad)"
             strokeWidth="3"
             strokeLinecap="round"
           />
-
-          <g transform="translate(100, 45) scale(1.15) rotate(-15)">
+          <g transform="translate(130, 155) scale(1.15) rotate(-15)">
             <use href="#sakura-flower-full" />
           </g>
-          <g transform="translate(150, 90) scale(1.2) rotate(25)">
+          <g transform="translate(170, 115) scale(1.05) rotate(30)">
             <use href="#sakura-flower-full" />
           </g>
-          <g transform="translate(185, 75) scale(0.9) rotate(-35)">
+          <g transform="translate(215, 70) scale(0.9) rotate(-45)">
             <use href="#sakura-flower-side" />
           </g>
-          <g transform="translate(215, 135) scale(1.1) rotate(10)">
-            <use href="#sakura-flower-full" />
-          </g>
-          <g transform="translate(260, 145) scale(0.95) rotate(50)">
-            <use href="#sakura-flower-side" />
-          </g>
-          <g transform="translate(255, 195) scale(1.05) rotate(-20)">
-            <use href="#sakura-flower-full" />
-          </g>
-          <g transform="translate(300, 245) scale(0.85) rotate(40)">
-            <use href="#sakura-flower-side" />
-          </g>
-          <g transform="translate(215, 5) scale(1) rotate(-50)">
+          <g transform="translate(255, 25) scale(0.95) rotate(15)">
             <use href="#sakura-bud" />
+          </g>
+          <g transform="translate(195, 200) scale(0.85) rotate(45)">
+            <use href="#sakura-flower-side" />
           </g>
         </svg>
       </div>
