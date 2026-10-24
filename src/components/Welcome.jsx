@@ -106,7 +106,16 @@ const Welcome = ({ onEnter }) => {
         {/* Gradual Welcome Heading with Typewriter directly on page */}
         <div className="welcome-heading-wrapper">
           <h1 className="welcome-heading">
-            {displayedText}
+            {displayedText.length <= 16 ? (
+              displayedText
+            ) : (
+              <>
+                {displayedText.slice(0, 16)}
+                <span className="welcome-lab-span">
+                  {displayedText.slice(16)}
+                </span>
+              </>
+            )}
             <span
               className={`typing-cursor ${isTypingDone ? 'cursor-blink' : ''}`}
             >
